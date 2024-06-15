@@ -1,36 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- The root element of the Maven POM file. It defines the structure of the project. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Specifies the version of the POM model you are using -->
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- Inherits settings and configurations from the Spring Boot parent POM -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/> <!-- This means it will look up the parent POM from the repository -->
 	</parent>
+	
+	<!-- Group ID uniquely identifies your project across all projects -->
 	<groupId>com.intellect37</groupId>
+	
+	<!-- Artifact ID is the name of your project and the artifact (JAR file) generated -->
 	<artifactId>api-test</artifactId>
+	
+	<!-- The version of your project -->
 	<version>0.0.1-SNAPSHOT</version>
+	
+	<!-- The name of your project -->
 	<name>api-test</name>
+	
+	<!-- A brief description of your project -->
 	<description>REST API Test</description>
+	
+	<!-- Properties are key-value pairs that can be used throughout the POM file -->
 	<properties>
-		<java.version>17</java.version>
+		<java.version>17</java.version> <!-- Specifies the Java version to use -->
 	</properties>
+	
+	<!-- Dependencies that your project needs to compile and run -->
 	<dependencies>
+		<!-- Dependency for Spring Boot web starter, which helps to build web applications -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Dependency for Spring Boot testing, which helps to write and run tests -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<scope>test</scope> <!-- This means the dependency is only used for testing -->
 		</dependency>
 	</dependencies>
 
+	<!-- Configuration for building the project -->
 	<build>
 		<plugins>
+			<!-- Plugin to package your application as an executable JAR file -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
