@@ -10,9 +10,7 @@ public class ApiTestApplication {
 
 	public static void main(String[] args) {
 		// Starts the Spring Boot application using ApiTestApplication as the entry point with command-line arguments.
-		SpringApplication.run(ApiTestApplication.class, args);
-
-		
+		SpringApplication.run(ApiTestApplication.class, args);		
 	}
-
+	
 }
