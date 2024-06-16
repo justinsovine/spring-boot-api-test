@@ -1,13 +1,13 @@
 package com.intellect37.api_test.model;
 
-public class Hello {
+public class HelloModel {
     private String message;
 
     // Default constructor
-    public Hello() {}
+    public HelloModel() {}
 
     // Constructor with message parameter
-    public Hello(String message) {
+    public HelloModel(String message) {
         this.message = message;
     }
 
