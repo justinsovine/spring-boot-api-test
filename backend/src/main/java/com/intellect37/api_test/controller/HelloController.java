@@ -20,7 +20,7 @@ public class HelloController {
         return helloRepository.findAll();
     }
 
-    @GetMapping("/api/lorem-ipsum")
+    @GetMapping(value="/api/lorem-ipsum", produces="application/json")
     public String getLoremIpsum() {
         return "Lorem ipsum dolor sit amet!";
     }
