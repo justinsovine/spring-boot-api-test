@@ -17,13 +17,13 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Update to v3
+      uses: actions/checkout@v3
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v3  # Update to v3
+      uses: actions/setup-java@v3
       with:
         java-version: '17'
-        distribution: 'temurin'  # Specify the distribution
+        distribution: 'temurin'
 
     - name: Build backend
       run: |
@@ -34,6 +34,7 @@ jobs:
       env:
         SERVER_IP: ${{ secrets.SERVER_IP }}
       run: |
+        mkdir -p ~/.ssh
         ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
     - name: Deploy backend
