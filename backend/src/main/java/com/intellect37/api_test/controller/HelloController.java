@@ -1,6 +1,6 @@
 package com.intellect37.api_test.controller;
 
-import com.intellect37.api_test.model.HelloEntity;
+import com.intellect37.api_test.entity.HelloEntity;
 import com.intellect37.api_test.repository.HelloRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,8 @@ public class HelloController {
         return helloRepository.findAll();
     }
 
-    @GetMapping(value="/api/lorem-ipsum", produces="application/json")
+    @GetMapping("/api/peter-ariosa")
     public String getLoremIpsum() {
-        return "Lorem ipsum dolor sit amet!";
+        return "Yo what up peter ariosa boiiiiiii";
     }
 }
