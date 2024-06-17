@@ -11,7 +11,7 @@ jobs:
 
     env:
       BACKEND_DIR: backend
-      FRONTEND_DIR: frontend
+      FRONTEND_DIR: frontend/public
       BACKEND_DEPLOY_PATH: /srv/api-test
       FRONTEND_DEPLOY_PATH: /var/www/intellect37.com/api-test
 
@@ -36,26 +36,34 @@ jobs:
       run: |
         mkdir -p ~/.ssh
         ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+        cat ~/.ssh/known_hosts
+
+    - name: Setup SSH Key
+      env:
+        SERVER_SSH_KEY_BASE64: ${{ secrets.SERVER_SSH_KEY_BASE64 }}
+      run: |
+        echo "${{ secrets.SERVER_SSH_KEY_BASE64 }}" | base64 -d > ssh_key
+        chmod 600 ssh_key
+        eval $(ssh-agent -s)
+        ssh-add ssh_key
+        ssh-add -l  # List the added keys for debugging
 
     - name: Deploy backend
       env:
         SERVER_USER: ${{ secrets.SERVER_USER }}
         SERVER_IP: ${{ secrets.SERVER_IP }}
-        SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
       run: |
-        echo "${{ secrets.SERVER_SSH_KEY }}" > ssh_key
-        chmod 600 ssh_key
         scp -i ssh_key ${{ env.BACKEND_DIR }}/target/*.jar ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:${{ env.BACKEND_DEPLOY_PATH }}/api-test.jar
         ssh -i ssh_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "sudo systemctl restart api-test.service"
-        rm -f ssh_key
 
     - name: Deploy frontend
       env:
         SERVER_USER: ${{ secrets.SERVER_USER }}
         SERVER_IP: ${{ secrets.SERVER_IP }}
-        SERVER_SSH_KEY: ${{ secrets.SERVER_SSH_KEY }}
       run: |
-        echo "${{ secrets.SERVER_SSH_KEY }}" > ssh_key
-        chmod 600 ssh_key
         rsync -e "ssh -i ssh_key" -avz ${{ env.FRONTEND_DIR }}/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:${{ env.FRONTEND_DEPLOY_PATH }}
+
+    - name: Cleanup
+      run: |
+        ssh-agent -k  # Kill the ssh-agent
         rm -f ssh_key
