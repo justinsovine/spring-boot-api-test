@@ -22,6 +22,6 @@ public class HelloController {
 
     @GetMapping("/api/peter-ariosa")
     public String getLoremIpsum() {
-        return "Yo what up Peter boiiiii";
+        return "Yo what up peter boiiiiiiiii";
     }
 }
