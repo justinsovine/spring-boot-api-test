@@ -30,6 +30,12 @@ jobs:
         cd ${{ env.BACKEND_DIR }}
         mvn clean package -DskipTests
 
+    - name: Add server to known_hosts
+      env:
+        SERVER_IP: ${{ secrets.SERVER_IP }}
+      run: |
+        ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+
     - name: Deploy backend
       env:
         SERVER_USER: ${{ secrets.SERVER_USER }}
