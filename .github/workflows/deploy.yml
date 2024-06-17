@@ -11,7 +11,7 @@ jobs:
 
     env:
       BACKEND_DIR: backend
-      FRONTEND_DIR: frontend
+      FRONTEND_DIR: frontend/public
       BACKEND_DEPLOY_PATH: /srv/api-test
       FRONTEND_DEPLOY_PATH: /var/www/intellect37.com/api-test
 
@@ -64,6 +64,9 @@ jobs:
         rsync -e "ssh -i ssh_key" -avz ${{ env.FRONTEND_DIR }}/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:${{ env.FRONTEND_DEPLOY_PATH }}
 
     - name: Cleanup
+      if: always()  # Ensure this step runs even if previous steps fail
       run: |
-        ssh-agent -k  # Kill the ssh-agent
+        if [ -n "$SSH_AGENT_PID" ]; then
+          ssh-agent -k  # Kill the ssh-agent
+        fi
         rm -f ssh_key
