@@ -54,7 +54,7 @@ jobs:
         SERVER_IP: ${{ secrets.SERVER_IP }}
       run: |
         scp -i ssh_key ${{ env.BACKEND_DIR }}/target/*.jar ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:${{ env.BACKEND_DEPLOY_PATH }}/api-test.jar
-        ssh -i ssh_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "sudo systemctl restart api-test.service"
+        ssh -i ssh_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "sudo systemctl daemon-reload && sudo systemctl restart api-test.service"
 
     - name: Deploy frontend
       env:
