@@ -11,7 +11,7 @@ jobs:
 
     env:
       BACKEND_DIR: backend
-      FRONTEND_DIR: frontend/public
+      FRONTEND_DIR: frontend
       BACKEND_DEPLOY_PATH: /srv/api-test
       FRONTEND_DEPLOY_PATH: /var/www/intellect37.com/api-test
 
