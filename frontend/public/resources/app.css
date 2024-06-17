@@ -1,0 +1,6 @@
+#data-display {
+    white-space: pre-wrap; /* Allows wrapping */
+    font-family: monospace; /* Makes the JSON look like code */
+    padding: 10px; /* Adds some padding for better readability */
+    color: white; /* Text color */
+}

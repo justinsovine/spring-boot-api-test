@@ -77,3 +77,4 @@ Thumbs.db
 *.sln.docstates
 *.swm
 
+.gitignore
