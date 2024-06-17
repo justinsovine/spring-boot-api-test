@@ -19,4 +19,9 @@ public class HelloController {
     public List<HelloEntity> getHelloMessages() {
         return helloRepository.findAll();
     }
+
+    @GetMapping("/api/lorem-ipsum")
+    public String getLoremIpsum() {
+        return "Lorem ipsum dolor sit amet!";
+    }
 }

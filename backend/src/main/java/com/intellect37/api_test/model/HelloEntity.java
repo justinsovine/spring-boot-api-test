@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+// An entity represents a table in the database. Each instance of an entity represents a row in that table.
+
 @Entity
 public class HelloEntity {
 
