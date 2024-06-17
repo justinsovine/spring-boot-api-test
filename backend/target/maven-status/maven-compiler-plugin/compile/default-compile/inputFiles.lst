@@ -1,5 +1,5 @@
 /Users/SovineJ/code/personal/spring-boot-api-test/backend/src/main/java/com/intellect37/api_test/ApiTestApplication.java
 /Users/SovineJ/code/personal/spring-boot-api-test/backend/src/main/java/com/intellect37/api_test/config/WebSecurityConfiguration.java
 /Users/SovineJ/code/personal/spring-boot-api-test/backend/src/main/java/com/intellect37/api_test/controller/HelloController.java
-/Users/SovineJ/code/personal/spring-boot-api-test/backend/src/main/java/com/intellect37/api_test/entity/HelloEntity.java
+/Users/SovineJ/code/personal/spring-boot-api-test/backend/src/main/java/com/intellect37/api_test/model/HelloEntity.java
 /Users/SovineJ/code/personal/spring-boot-api-test/backend/src/main/java/com/intellect37/api_test/repository/HelloRepository.java

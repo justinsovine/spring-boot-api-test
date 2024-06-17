@@ -1,5 +1,5 @@
+com/intellect37/api_test/model/HelloEntity.class
 com/intellect37/api_test/controller/HelloController.class
 com/intellect37/api_test/config/WebSecurityConfiguration.class
 com/intellect37/api_test/ApiTestApplication.class
-com/intellect37/api_test/entity/HelloEntity.class
 com/intellect37/api_test/repository/HelloRepository.class
