@@ -16,9 +16,9 @@
 ## Project Overview
 This project consists of a **Spring Boot 3.3.0** REST API backend and a static HTML/JS frontend UI. The API serves stored messages from a MariaDB database and is secured with HTTP Basic Authentication.
 
-- Backend: A Spring Boot REST API that provides endpoints to retrieve stored messages.
-- Frontend: A static HTML/JS app that consumes the API and displays responses.
-- Deployment: Managed via GitHub Actions, with the backend running as a systemd service.
+- **Backend:** A Spring Boot REST API that provides endpoints to retrieve stored messages. It uses Spring Data JPA for database interactions with MariaDB. Security is enforced through Spring Security using HTTP Basic Authentication, meaning every API request must include valid credentials. The primary endpoint (`/api/hello`) fetches all stored messages.
+- **Frontend:** A static HTML/JS app that consumes the API and displays responses.
+- **Deployment:** Managed via GitHub Actions, with the backend running as a systemd service.
 
 Visit the frontend at [https://api-test.intellect37.com/](https://api-test.intellect37.com/)
 
