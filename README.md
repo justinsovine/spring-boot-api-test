@@ -1,4 +1,4 @@
-
+ 
 # Spring Boot REST API with Frontend
 
 ## **Table of Contents**
@@ -20,7 +20,7 @@ This project consists of a **Spring Boot 3.3.0** REST API backend and a static H
 - Frontend: A static HTML/JS app that consumes the API and displays responses.
 - Deployment: Managed via GitHub Actions, with the backend running as a systemd service.
 
-Visit the frontend at [https://api-test.intellect37.com/](https://api-test.intellect37.com/).
+Visit the frontend at [https://api-test.intellect37.com/](https://api-test.intellect37.com/)
 
 ---
 
